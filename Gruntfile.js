@@ -519,6 +519,9 @@ module.exports = function (grunt) {
       prod: {
         NODE_ENV: 'production'
       },
+      cProd: {
+        NODE_ENV: 'customerProd'
+      },
       all: localConfig
     },
 
@@ -774,4 +777,21 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+
+  grunt.registerTask('customerProd', function (target) {
+    grunt.task.run([
+      'clean:server',
+      'env:all',
+      'env:cProd',
+      'concurrent:pre',
+      'concurrent:server',
+      'injector',
+      'wiredep:client',
+      'postcss',
+      'express:dev',
+      'wait',
+      'open',
+      'watch'
+    ]);
+  });
 };

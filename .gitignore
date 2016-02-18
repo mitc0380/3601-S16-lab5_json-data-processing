@@ -8,3 +8,4 @@ dist
 npm-debug.log
 coverage
 server/config/environment/customerProd.js
+server/config/environment/production.js

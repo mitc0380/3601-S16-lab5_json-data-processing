@@ -72,11 +72,11 @@ export default function(app) {
     app.use(morgan('dev'));
   }
 
-  if ('development' === env) {
+  if ('development' === env || 'customerProd' === env) {
     app.use(require('connect-livereload')());
   }
 
-  if ('development' === env || 'test' === env) {
+  if ('development' === env || 'test' === env || 'customerProd' === env) {
     app.use(express.static(path.join(config.root, '.tmp')));
     app.use(express.static(app.get('appPath')));
     app.use(morgan('dev'));
