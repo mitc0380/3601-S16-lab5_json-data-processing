@@ -1,4 +1,4 @@
-# CSCI 3601 Lab #5 - Processing JSON data from Mongo
+# CSCI 3601 Lab #5 - Processing JSON data from Mongo [![Build Status](https://travis-ci.org/mitc0380/3601-S16-lab5_json-data-processing.svg?branch=master)](https://travis-ci.org/mitc0380/3601-S16-lab5_json-data-processing)
 
 During this lab you will complete a small project for a hypothetical customer, using all of the tools you have learned in
 other labs. The new thing being introduced in this lab is the Yeoman generator. You will use it to manage laying out your project's basic directory structure and boilerplate details such as routing.
