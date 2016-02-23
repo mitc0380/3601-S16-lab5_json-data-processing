@@ -8,13 +8,13 @@
       this.$http = $http;
       this.students = [];
 
-      $http.get('/api/students').then(response => {
+      $http.get('/api/student').then(response => {
         this.students = response.data;
-      socket.syncUpdates('thing', this.students);
+      socket.syncUpdates('student', this.students);
     });
 
     $scope.$on('$destroy', function() {
-      socket.unsyncUpdates('thing');
+      socket.unsyncUpdates('student');
     });
   }
 }
