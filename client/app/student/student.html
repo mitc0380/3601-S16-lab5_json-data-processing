@@ -1,9 +1,12 @@
+<div ui-view=""></div>
 <div class="container">
   <div class="row">
     <div class="col-lg-12">
       <h1 class="page-header">Students:</h1>
-      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="student in students">
-        <li> {{student.lastName}}, {{student.firstName}} </li>
+      <ul class="nav nav-tabs nav-stacked" ng-repeat="student in students">
+        <li> <a ui-sref="student.detail({ id: student._id })">
+          {{ student.firstName }} {{ student.lastName }}
+        </a> </li>
       </ul>
     </div>
   </div>
