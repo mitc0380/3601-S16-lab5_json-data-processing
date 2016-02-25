@@ -2,7 +2,11 @@
   <div class="row">
     <div class="col-lg-12">
       <h1 class="page-header">Students:</h1>
-      <ul class="nav nav-tabs nav-stacked" ng-repeat="student in students">
+      <div class="btn-group-horizontal">
+        <button class="glyphicon glyphicon-sort-by-alphabet" ng-click="sort()"></button>
+      </div>
+      <hr>
+      <ul class="nav nav-tabs nav-stacked" ng-repeat="student in studentCtrl.students | orderBy: studentCtrl.getCurrentSortable()">
         <li>
           <details> <summary> {{ student.firstName }} {{ student.lastName }} </summary>
             <div class="student-info">
@@ -11,6 +15,18 @@
               <div> {{student.address}} <br> </div>
               <div> {{student.email}} <br> </div>
               <div> {{student.phone}} </div>
+              <details> <summary> Classes: </summary>
+                <ul class="nav nav-tabs nav-stacked" ng-repeat="class in student.courses">
+                  <li class="class-info">
+                    <details> <summary> {{ class.course.name }} </summary>
+                      <div class="class-info"> Course credits: {{class.course.credits}} </div>
+                      <div class="class-info"> Course number: {{class.course.courseNumber}} </div>
+                      <div class="class-info"> Course subject: {{class.course.subject}} </div>
+                      <div class="class-info"> Course grade: {{class.grade}} </div>
+                    </details>
+                  </li>
+                </ul>
+              </details>
             </div>
           </details>
         </li>
@@ -18,3 +34,4 @@
     </div>
   </div>
 </div>
+
