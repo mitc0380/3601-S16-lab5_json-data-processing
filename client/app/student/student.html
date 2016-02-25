@@ -3,7 +3,10 @@
     <div class="col-lg-12">
       <h1 class="page-header">Students:</h1>
       <div class="btn-group-horizontal">
-        <button class="glyphicon glyphicon-sort-by-alphabet" ng-click="sort()"></button>
+        <button class="glyphicon glyphicon-sort-by-alphabet" ng-click=""></button>
+        <button class="glyphicon glyphicon-sort-by-alphabet-alt" ng-click=""></button>
+        <label><button value="" id="firstName" ng-click="studentCtrl.toggleSortable('firstName')"> First Name </button>
+        <label><button value="" id="lastName" ng-click="studentCtrl.toggleSortable('lastName')"> Last Name </button>
       </div>
       <hr>
       <ul class="nav nav-tabs nav-stacked" ng-repeat="student in studentCtrl.students | orderBy: studentCtrl.getCurrentSortable()">

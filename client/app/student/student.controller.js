@@ -6,7 +6,9 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
     var self = this;
 
     self.students = [];
-
+    self.boolLastName = true;
+    self.boolFirstName = false;
+    self.boolDOBName = false;
     self.testing = 'lastName';
     self.ascending = true;
     self.index = 0;
@@ -27,7 +29,27 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
     }
 
     self.getCurrentSortable = function(){
-      return self.sortables[self.index];
+      var arr = [];
+      if (self.boolLastName) {
+        arr.push(self.sortables[0]);
+      } else if (self.boolFirstName) {
+        arr.push(self.sortables[1]);
+      } else if (self.boolDOBName) {
+        arr.push(self.sortables[2]);
+      }
+      console.log(arr);
+      return arr;
+    }
+
+    self.toggleSortable = function(sortable) {
+      console.log(self.boolLastName);
+      if (sortable == 'lastName') {
+        self.boolLastName = !self.boolLastName;
+      } else if (sortable == 'firstName') {
+        self.boolFirstName = !self.boolFirstName;
+      } else if (sortable == 'DOB') {
+        self.boolDOBName = !self.boolDOBName;
+      }
     }
 
     self.toggleAscendDescend = function() {
