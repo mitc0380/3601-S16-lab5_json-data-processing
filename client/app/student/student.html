@@ -3,16 +3,19 @@
     <div class="col-lg-12">
       <h1 class="page-header">Students:</h1>
       <div class="btn-group-horizontal">
+        <label> Sort by ... </label>
         <button class="glyphicon glyphicon-sort-by-alphabet" ng-click=""></button>
         <button class="glyphicon glyphicon-sort-by-alphabet-alt" ng-click=""></button>
-        <label><button value="" id="firstName" ng-click="studentCtrl.toggleSortable('firstName')"> First Name </button>
-        <label><button value="" id="lastName" ng-click="studentCtrl.toggleSortable('lastName')"> Last Name </button>
+        <button value="toggle" id="firstName" ng-click="studentCtrl.toggleSortable('firstName')"> First Name </button>
+        <button value="toggle" id="lastName" ng-click="studentCtrl.toggleSortable('lastName')"> Last Name </button>
+        <button value="toggle" id="lastName" ng-click="studentCtrl.toggleSortable('GPA')"> GPA </button>
       </div>
       <hr>
       <ul class="nav nav-tabs nav-stacked" ng-repeat="student in studentCtrl.students | orderBy: studentCtrl.getCurrentSortable()">
         <li>
           <details> <summary> {{ student.firstName }} {{ student.lastName }} </summary>
             <div class="student-info">
+              <div class="ng-hide" ng-hide="studentCtrl.hideGPA"> {{student.GPA}} </div>
               <div> {{student.dateOfBirth}} <br> </div>
               <div> {{student.gender}} <br> </div>
               <div> {{student.address}} <br> </div>
