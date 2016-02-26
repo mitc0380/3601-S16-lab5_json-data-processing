@@ -5,3 +5,15 @@
 .class-info {
   padding-left: 15px;
 }
+
+.student-block {
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 4px;
+  margin: 2px;
+  display: block;
+}
+
+.student-data {
+  display: inline;
+}

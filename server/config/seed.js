@@ -10,7 +10,7 @@ Student.find({}).removeAsync().then(() => {
   Student.create(
       {
         "firstName": "Love",
-        "lastName": "Roberts",
+        "lastName": "Cooper",
         "dateOfBirth": "1989-01-18",
         "gender": "male",
         "email": "loveroberts@eweville.com",

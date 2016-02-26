@@ -5,6 +5,7 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
 
     var self = this;
 
+    self.currSortables = ['lastName', 'firstName'];
     self.hideGPA = false;
     self.students = [];
     self.boolGPA = false;
@@ -28,22 +29,30 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
       var arr = [];
       if (self.boolLastName) {
         arr.push(self.sortables[0]);
-      }
-      if (self.boolFirstName) {
         arr.push(self.sortables[1]);
-      }
-      if (self.boolDOB) {
+      } else if (self.boolDOB) {
         arr.push(self.sortables[2]);
+      } else if (self.boolGPA) {
+        return studentCtrl.calculateGPAAngular;
       }
-      if (self.boolGPA) {
-        arr.push(self.sortables[3]);
-      }
-      console.log(arr);
       return arr;
     }
 
     self.toggleOrder = function() {
       self.order *= 1;
+    }
+
+    self.giveSortables = function(sortable) {
+      var arr = [];
+      if (self.boolLastName) {
+        arr.push(self.sortables[0]);
+        arr.push(self.sortables[1]);
+      } else if (self.boolDOB) {
+        arr.push(self.sortables[2]);
+      } else if (self.boolGPA) {
+        self.currSortables = self.calculateGPAAngular;
+      }
+      self.currSortables = arr;;
     }
 
     self.toggleSortable = function(sortable) {
@@ -75,7 +84,6 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
     });
 
     self.calculateGPA = function(courseArray) {
-      console.log(courseArray);
       var qualityPoints = 0;
       var totalCredits = 0;
       var i = 0;
