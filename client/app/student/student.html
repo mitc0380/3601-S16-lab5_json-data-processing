@@ -13,9 +13,13 @@
       <hr>
       <ul class="nav nav-tabs nav-stacked" ng-repeat="student in studentCtrl.students | orderBy: studentCtrl.getCurrentSortable()">
         <li>
-          <details> <summary> {{ student.firstName }} {{ student.lastName }} </summary>
-            <div class="student-info">
+          <details>
+            <summary>
+              {{ student.firstName }} {{ student.lastName }}
               <div class="ng-hide" ng-hide="studentCtrl.hideGPA"> {{student.GPA}} </div>
+              <div class="ng-hide" ng-hide="studentCtrl.hideMajor"> {{student.major}} </div>
+            </summary>
+            <div class="student-info">
               <div> {{student.dateOfBirth}} <br> </div>
               <div> {{student.gender}} <br> </div>
               <div> {{student.address}} <br> </div>

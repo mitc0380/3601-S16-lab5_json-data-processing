@@ -6,6 +6,9 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
     var self = this;
 
     self.hideGPA = true;
+    self.hideDOB = true;
+
+    self.hideMajor = true;
     self.students = [];
     self.boolGPA = false;
     self.boolLastName = true;
@@ -62,7 +65,7 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
         var id = self.students[i].GPA = self.calculateGPA(self.students[i].courses);
       }
 
-      if (sortable == 'lastName') {
+      if (sortable == 'laGPAstName') {
         self.boolLastName = !self.boolLastName;
         console.log("Toggled last name sorting to " + self.boolLastName);
 
