@@ -4,15 +4,16 @@
       <h1 class="page-header">Students:</h1>
       <div class="btn-group-horizontal">
         <label> Sort by ... </label>
-        <button type="radio" id="lastName" ng-click="studentCtrl.giveSortables('lastName')"> Last Name </button>
-        <button type="radio" id="GPA" ng-click="studentCtrl.giveSortables('GPA')"> GPA </button>
+        <button type="radio" id="lastName" ng-click="studentCtrl.toggleSortable('lastName')"> Last Name </button>
+        <button type="radio" id="Credits" ng-click="studentCtrl.toggleSortable('Credits')"> Credits </button>
       </div>
       <hr>
-      <div class="nav nav-tabs nav-stacked" ng-repeat="student in studentCtrl.students | orderBy: studentCtrl.currSortables">
+      <div class="nav nav-tabs nav-stacked" ng-repeat="student in studentCtrl.students | orderBy: studentCtrl.sorter">
         <div>
           <div class="student-block">  {{ student.firstName }} {{ student.lastName }}
             <div class="student-info">
-              <div class="ng-hide" ng-hide="studentCtrl.hideGPA"> Current GPA: {{studentCtrl.calculateGPA(student.courses)}} </div>
+              <div class="ng-hide" ng-hide="studentCtrl.hideGPA"> Current GPA: {{studentCtrl.calculateGPAAngular(student)}} </div>
+              <div class="student-data">Total Credits: {{studentCtrl.calculateCreditsAngular(student)}} <br> </div>
               <div class="student-data">DOB: {{student.dateOfBirth}} <br> </div>
               <div class="student-data">Gender: {{student.gender}} <br> </div>
               <div class="student-data">Address: {{student.address}} <br> </div>

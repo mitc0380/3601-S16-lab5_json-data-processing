@@ -76,19 +76,19 @@ To keep track of progress on the stories throughout the course of the lab, you w
 
 #### Finally, the stories:
 
-- [ ] display a list of all students, ordered alphabetically by last name, first name.
+- [X] display a list of all students, ordered alphabetically by last name, first name.
 
-- [ ] display a list of all students, ordered by date of birth.
+- [ ] display a list of all students, ordered by date of birth.
 
-- [ ] display a list of all students, ordered by the number of credits that they have successfully completed (i.e. excluding the in-progress credits and grade F courses).
+- [X] display a list of all students, ordered by the number of credits that they have successfully completed (i.e. excluding the in-progress credits and grade F courses).
 
 - [ ] view a list of students based on their major(s).
 
-- [ ] view detailed information for an individual student.
+- [X] view detailed information for an individual student.
 
-- [ ] view all courses that a student has taken or is taking, with grades, including failed courses.
+- [X] view all courses that a student has taken or is taking, with grades, including failed courses.
 
-- [ ] display a list of students with their GPA.
+- [X] display a list of students with their GPA.
 
 - [ ] display students' status based on their completed courses (freshman, sophomore, junior, senior) and sort/search by these             parameters.
 
