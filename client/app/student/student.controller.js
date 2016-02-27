@@ -22,7 +22,7 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
       socket.syncUpdates('student', self.students);
     });
 
-    self.getCurrentSortable = function(){
+    /*self.getCurrentSortable = function(){
 
       var arr = [];
       if (self.boolLastName) {
@@ -34,11 +34,11 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
         return studentCtrl.calculateGPAAngular;
       }
       return arr;
-    }
+    }*/
 
     self.toggleOrder = function() {
       self.order *= 1;
-    }
+    };
 
     self.giveSortables = function(sortable) {
       var arr = [];
@@ -51,7 +51,7 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
         self.currSortables = self.calculateGPAAngular;
       }
       self.currSortables = arr;
-    }
+    };
 
     self.toggleSortable = function(sortable) {
       if (sortable == 'lastName') {
@@ -87,11 +87,11 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
         }
         console.log("Toggled Credits sorting to " + self.boolCredits);
       }
-    }
+    };
 
     self.toggleAscendDescend = function() {
       self.ascendDescend = !self.ascendDescend;
-    }
+    };
 
     $scope.$on('$destroy', function() {
       socket.unsyncUpdates('student');
@@ -109,7 +109,7 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
       } else if (self.boolCredits) {
         return self.calculateCreditsAngular(student);
       }
-    }
+    };
 
     self.calculateCreditsAngular = function(student) {
       var courseArray = student.courses;
@@ -123,14 +123,14 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
       }
       console.log("Total credits for " + student.firstName + " " + student.lastName + ": " + total + ", calculated by Credit calculator.");
       return total;
-    }
+    };
 
     self.calculateGPAAngular = function(student) {
       var courseArray = student.courses;
       var qualityPoints = 0;
       var totalCredits = 0;
       var i = 0;
-      for (var i in courseArray) { 19890118
+      for (var i in courseArray) {
         if (courseArray[i].grade === "IP") {
           console.log("In progress class detected!");
         } else {
@@ -159,12 +159,29 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
       if (gr == "F") {
         return 0.0;
       }
-    }
+    };
 
     self.datetoNumber = function(dob) {
       var dobInt = dob.replace("-", "").replace("-", "");
       console.log(dobInt);
       return dobInt;
-    }
+    };
+
+    self.classRank = function(student) {
+      var totalCred = self.calculateCreditsAngular(student);
+      if (totalCred >= 90) {
+        return "Senior";
+      }
+      if (totalCred >= 60) {
+        return "Junior";
+      }
+      if (totalCred >= 30) {
+        return "Sophomore";
+      }
+      else{
+        return "Freshman";
+      }
+    };
+
   });
 
