@@ -15,14 +15,14 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
     self.index = 0;
     self.sortable = 'lastName';
     self.order = 1;
-    self.sortables = ['lastName', 'firstName', 'dateOfBirth', 'studentCtrl.calculateGPAAngular', 'major1', 'major2'];
+    //self.sortables = ['lastName', 'firstName', 'dateOfBirth', 'studentCtrl.calculateGPAAngular', 'major1', 'major2'];
 
     Student.query(function(results) {
       self.students = results;
       socket.syncUpdates('student', self.students);
     });
 
-    self.getCurrentSortable = function(){
+    /*self.getCurrentSortable = function(){
 
       var arr = [];
       if (self.boolLastName) {
@@ -34,7 +34,7 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
         return studentCtrl.calculateGPAAngular;
       }
       return arr;
-    }
+    }*/
 
     self.toggleOrder = function() {
       self.order *= 1;
@@ -99,7 +99,7 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
 
     self.sorter = function(student) {
       if (self.boolDOB) {
-        return 'dateOfBirth';
+        return self.datetoNumber(student.dateOfBirth);
       } else if (self.boolGPA) {
         var toReturn = self.calculateGPAAngular(student);
         console.log("ToReturn: " + toReturn);
@@ -130,7 +130,7 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
       var qualityPoints = 0;
       var totalCredits = 0;
       var i = 0;
-      for (var i in courseArray) {
+      for (var i in courseArray) { 19890118
         if (courseArray[i].grade === "IP") {
           console.log("In progress class detected!");
         } else {
@@ -160,7 +160,11 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
         return 0.0;
       }
     }
-    
 
+    self.datetoNumber = function(dob) {
+      var dobInt = dob.replace("-", "").replace("-", "");
+      console.log(dobInt);
+      return dobInt;
+    }
   });
 
