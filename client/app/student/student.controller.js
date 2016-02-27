@@ -160,6 +160,7 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
         return 0.0;
       }
     }
+    
 
   });
 
