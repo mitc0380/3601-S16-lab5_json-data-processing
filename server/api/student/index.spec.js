@@ -1,4 +1,4 @@
-/*'use strict';
+'use strict';
 
 var proxyquire = require('proxyquire').noPreserveCache();
 
@@ -94,4 +94,4 @@ describe('Student API Router:', function() {
 
   });
 
-});*/
+});
