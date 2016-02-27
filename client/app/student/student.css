@@ -10,10 +10,22 @@
   border: 1px solid black;
   border-radius: 3px;
   padding: 4px;
-  margin: 2px;
+  margin: -1px;
   display: block;
 }
 
 .student-data {
   display: inline;
+  line-height: 100%;
+  padding: 2px;
+  margin: 3px;
+  border: 1px solid grey;
+  border-radius: 3px;
 }
+
+.course-table {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+}
+
