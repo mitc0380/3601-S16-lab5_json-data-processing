@@ -4,15 +4,15 @@
       <h1 class="page-header">Students:</h1>
       <div class="btn-group-horizontal">
         <label> Sort by ... </label>
-        <button type="radio" id="lastName" ng-click="studentCtrl.giveSortables('lastName')"> Last Name </button>
-        <button type="radio" id="GPA" ng-click="studentCtrl.giveSortables('GPA')"> GPA </button>
+        <button type="radio" id="lastName" ng-click="studentCtrl.toggleSortable('lastName')"> Last Name </button>
+        <button type="radio" id="Credits" ng-click="studentCtrl.toggleSortable('Credits')"> Credits </button>
       </div>
       <hr>
 
       <!-- Student Info/Demographics-->
-      <div class="student-block" ng-repeat="student in studentCtrl.students | orderBy: studentCtrl.currSortables">
+      <div class="student-block" ng-repeat="student in studentCtrl.students | orderBy: studentCtrl.sorter">
         <div class="student-name">
-          {{student.firstName}} {{student.lastName}}
+          {{student.firstName}} {{student.lastName}} Credits: {{studentCtrl.calculateCreditsAngular(student)}}
         </div>
         <div class="student-data">DOB: {{student.dateOfBirth}}</div>
         <div class="student-data">Gender: {{student.gender}}</div>
@@ -48,40 +48,6 @@
 
       </div>
 
-      ====================
-      ====================
-=========BEGIN OLD STYLE==========
-      ====================
-      ====================
-
-      <div class="nav nav-tabs nav-stacked" ng-repeat="student in studentCtrl.students | orderBy: studentCtrl.currSortables">
-        <div>
-          <div class="student-block">  {{ student.firstName }} {{ student.lastName }}
-            <div class="student-info">
-              <div class="ng-hide" ng-hide="studentCtrl.hideGPA"> Current GPA: {{studentCtrl.calculateGPA(student.courses)}} </div>
-              <div class="student-data">DOB: {{student.dateOfBirth}} <br> </div>
-              <div class="student-data">Gender: {{student.gender}} <br> </div>
-              <div class="student-data">Address: {{student.address}} <br> </div>
-              <div class="student-data">Email: {{student.email}} <br> </div>
-              <div class="student-data">Phone: {{student.phone}} </div>
-
-              <details> <summary> Classes: </summary>
-                <ul class="nav nav-tabs nav-stacked" ng-repeat="class in student.courses">
-                  <li class="class-info">
-                    <details> <summary> {{ class.course.name }} </summary>
-                      <div class="class-info"> Course credits: {{class.course.credits}} </div>
-                      <div class="class-info"> Course number: {{class.course.courseNumber}} </div>
-                      <div class="class-info"> Course subject: {{class.course.subject}} </div>
-                      <div class="class-info"> Course grade: {{class.grade}} </div>
-                    </details>
-                  </li>
-                </ul>
-              </details>
-
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </div>
