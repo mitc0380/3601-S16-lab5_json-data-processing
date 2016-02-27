@@ -22,7 +22,7 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
       socket.syncUpdates('student', self.students);
     });
 
-    /*self.getCurrentSortable = function(){
+    self.getCurrentSortable = function(){
 
       var arr = [];
       if (self.boolLastName) {
@@ -34,7 +34,7 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
         return studentCtrl.calculateGPAAngular;
       }
       return arr;
-    }*/
+    }
 
     self.toggleOrder = function() {
       self.order *= 1;
