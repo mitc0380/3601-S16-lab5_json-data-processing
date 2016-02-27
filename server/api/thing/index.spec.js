@@ -1,4 +1,4 @@
-'use strict';
+/*'use strict';
 
 var proxyquire = require('proxyquire').noPreserveCache();
 
@@ -95,3 +95,4 @@ describe('Thing API Router:', function() {
   });
 
 });
+*/
