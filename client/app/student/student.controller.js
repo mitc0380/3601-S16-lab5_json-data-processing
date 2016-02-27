@@ -9,11 +9,9 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
     self.hideGPA = false;
     self.students = [];
     self.boolGPA = false;
+    self.boolCredits = false;
     self.boolLastName = true;
-    self.boolFirstName = false;
     self.boolDOB = false;
-    self.testing = 'lastName';
-    self.ascending = true;
     self.index = 0;
     self.sortable = 'lastName';
     self.order = 1;
@@ -52,26 +50,42 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
       } else if (self.boolGPA) {
         self.currSortables = self.calculateGPAAngular;
       }
-      self.currSortables = arr;;
+      self.currSortables = arr;
     }
 
     self.toggleSortable = function(sortable) {
-
       if (sortable == 'lastName') {
         self.boolLastName = !self.boolLastName;
+        if (self.boolLastName) {
+          self.boolDOB = false;
+          self.boolGPA = false;
+          self.boolCredits = false;
+        }
         console.log("Toggled last name sorting to " + self.boolLastName);
-
-      } else if (sortable == 'firstName') {
-        self.boolFirstName = !self.boolFirstName;
-        console.log("Toggled first name sorting to " + self.boolFirstName);
-
       } else if (sortable == 'DOB') {
         self.boolDOB = !self.boolDOB;
+        if (self.boolDOB) {
+          self.boolLastName = false;
+          self.boolGPA = false;
+          self.boolCredits = false;
+        }
         console.log("Toggled DOB sorting to " + self.boolDOB);
-
       } else if (sortable == 'GPA') {
         self.boolGPA = !self.boolGPA;
+        if (self.boolGPA) {
+          self.boolLastName = false;
+          self.boolDOB = false;
+          self.boolCredits = false;
+        }
         console.log("Toggled GPA sorting to " + self.boolGPA);
+      } else if (sortable == 'Credits') {
+        self.boolCredits = !self.boolCredits;
+        if (self.boolCredits) {
+          self.boolLastName = false;
+          self.boolDOB = false;
+          self.boolGPA = false;
+        }
+        console.log("Toggled Credits sorting to " + self.boolCredits);
       }
     }
 
@@ -83,58 +97,69 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
       socket.unsyncUpdates('student');
     });
 
-    self.calculateGPA = function(courseArray) {
-      var qualityPoints = 0;
-      var totalCredits = 0;
-      var i = 0;
-      for (var i in courseArray) {
-        if (courseArray[i].grade === "IP") {
-          continue;
-        }
-        qualityPoints = qualityPoints + (parseInt(courseArray[i].course.credits) * self.gradeToNumber(courseArray[i].grade));
-        totalCredits = totalCredits + parseInt(courseArray[i].course.credits);
+    self.sorter = function(student) {
+      if (self.boolDOB) {
+        return 'dateOfBirth';
+      } else if (self.boolGPA) {
+        var toReturn = self.calculateGPAAngular(student);
+        console.log("ToReturn: " + toReturn);
+        return toReturn;
+      } else if (self.boolLastName) {
+        return [student.lastName, student.firstName];
+      } else if (self.boolCredits) {
+        return self.calculateCreditsAngular(student);
       }
+    }
 
-
-      return Math.round(qualityPoints / totalCredits * 100) / 100;
-    };
+    self.calculateCreditsAngular = function(student) {
+      var courseArray = student.courses;
+      var total = 0;
+      for (var i in courseArray) {
+        if (courseArray[i].grade === "IP" || courseArray[i].grade === "F") {
+          continue;
+        } else {
+          total += parseInt(courseArray[i].course.credits);
+        }
+      }
+      console.log("Total credits for " + student.firstName + " " + student.lastName + ": " + total + ", calculated by Credit calculator.");
+      return total;
+    }
 
     self.calculateGPAAngular = function(student) {
       var courseArray = student.courses;
-      console.log(courseArray);
       var qualityPoints = 0;
       var totalCredits = 0;
       var i = 0;
       for (var i in courseArray) {
         if (courseArray[i].grade === "IP") {
-          continue;
+          console.log("In progress class detected!");
+        } else {
+          qualityPoints = qualityPoints + (parseInt(courseArray[i].course.credits) * self.gradeToNumber(courseArray[i].grade));
+          totalCredits = totalCredits + parseInt(courseArray[i].course.credits);
         }
-        qualityPoints = qualityPoints + (parseInt(courseArray[i].course.credits) * self.gradeToNumber(courseArray[i].grade));
-        totalCredits = totalCredits + parseInt(courseArray[i].course.credits);
       }
-
-
+      console.log("Total credits for " + student.firstName + " " + student.lastName + ": " + totalCredits + ", calculated by GPA calculator.");
       return Math.round(qualityPoints / totalCredits * 100) / 100;
     };
 
     self.gradeToNumber = function(gr){
 
-        if (gr == "A") {
-          return 4.0;
-        }
-        if (gr == "B") {
-          return 3.0;
-        }
-        if (gr == "C") {
-          return 2.0;
-        }
-        if (gr == "D") {
-          return 1.0;
-        }
-        if (gr == "F") {
-          return 0.0;
-        }
+      if (gr == "A") {
+        return 4.0;
       }
+      if (gr == "B") {
+        return 3.0;
+      }
+      if (gr == "C") {
+        return 2.0;
+      }
+      if (gr == "D") {
+        return 1.0;
+      }
+      if (gr == "F") {
+        return 0.0;
+      }
+    }
 
-    });
+  });
 
