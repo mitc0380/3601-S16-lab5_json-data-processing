@@ -15,26 +15,11 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
     self.index = 0;
     self.sortable = 'lastName';
     self.order = 1;
-    //self.sortables = ['lastName', 'firstName', 'dateOfBirth', 'studentCtrl.calculateGPAAngular', 'major1', 'major2'];
 
     Student.query(function(results) {
       self.students = results;
       socket.syncUpdates('student', self.students);
     });
-
-    /*self.getCurrentSortable = function(){
-
-      var arr = [];
-      if (self.boolLastName) {
-        arr.push(self.sortables[0]);
-        arr.push(self.sortables[1]);
-      } else if (self.boolDOB) {
-        arr.push(self.sortables[2]);
-      } else if (self.boolGPA) {
-        return studentCtrl.calculateGPAAngular;
-      }
-      return arr;
-    }*/
 
     self.toggleOrder = function() {
       self.order *= 1;
@@ -163,7 +148,6 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
 
     self.datetoNumber = function(dob) {
       var dobInt = dob.replace("-", "").replace("-", "");
-      console.log(dobInt);
       return dobInt;
     };
 

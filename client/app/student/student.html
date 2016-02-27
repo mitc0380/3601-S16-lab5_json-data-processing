@@ -7,6 +7,7 @@
         <button type="radio" id="lastName" ng-click="studentCtrl.toggleSortable('lastName')"> Last Name </button>
         <button type="radio" id="Credits" ng-click="studentCtrl.toggleSortable('Credits')"> Credits </button>
         <button type="radio" id="dateOfBirth" ng-click="studentCtrl.toggleSortable('DOB')"> Date of Birth </button>
+        <form></form>
       </div>
       <hr>
 
@@ -21,6 +22,7 @@
 
         <div ng-show="showInfo">
           <h4>Student Info</h4>
+          <div class="student-data">Rank: {{studentCtrl.classRank(student)}}</div>
           <div class="student-data">Credits: {{studentCtrl.calculateCreditsAngular(student)}}</div>
           <div class="student-data">GPA: {{studentCtrl.calculateGPAAngular(student)}}</div>
           <div class="student-data">DOB: {{student.dateOfBirth}}</div>
