@@ -6,7 +6,7 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
     var self = this;
 
     self.currSortables = ['lastName', 'firstName'];
-    self.hideGPA = false;
+    self.hideGPA = true;
     self.students = [];
     self.boolGPA = false;
     self.boolCredits = false;

@@ -12,7 +12,7 @@
       <!-- Student Info/Demographics-->
       <div class="student-block" ng-repeat="student in studentCtrl.students | orderBy: studentCtrl.sorter">
         <div class="student-name">
-          {{student.firstName}} {{student.lastName}} Credits: {{studentCtrl.calculateCreditsAngular(student)}}
+          {{student.firstName}} {{student.lastName}} Credits: {{studentCtrl.calculateCreditsAngular(student)}} GPA: {{studentCtrl.calculateGPAAngular(student)}}
         </div>
         <div class="student-data">DOB: {{student.dateOfBirth}}</div>
         <div class="student-data">Gender: {{student.gender}}</div>
@@ -34,10 +34,13 @@
           <tr ng-repeat="class in student.courses">
             <td class="course-table" ng-if="$even" style="background-color:#f1f1f1">  {{class.course.subject}}</td>
             <td class="course-table" ng-if="$odd">  {{class.course.subject}}</td>
+
             <td class="course-table" ng-if="$even" style="background-color:#f1f1f1">{{class.course.courseNumber}}</td>
             <td class="course-table" ng-if="$odd">  {{class.course.courseNumber}}</td>
+
             <td class="course-table" ng-if="$even" style="background-color:#f1f1f1">{{class.course.name}}</td>
             <td class="course-table" ng-if="$odd">{{class.course.name}}</td>
+
             <td class="course-table" ng-if="$even" style="background-color:#f1f1f1">  {{class.course.credits}}</td>
             <td class="course-table" ng-if="$odd"> {{class.course.credits}}</td>
             <td class="course-table" ng-if="$even" style="background-color:#f1f1f1">  {{class.grade}}</td>

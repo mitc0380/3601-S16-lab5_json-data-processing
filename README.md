@@ -90,7 +90,7 @@ To keep track of progress on the stories throughout the course of the lab, you w
 
 - [X] display a list of students with their GPA.
 
-- [ ] display students' status based on their completed courses (freshman, sophomore, junior, senior) and sort/search by these             parameters.
+- [ ] display students' status based on their completed courses (freshman, sophomore, junior, senior) and sort/search by these parameters.
 
 - [ ] search student records based on courses that they are taking or have taken.
 
