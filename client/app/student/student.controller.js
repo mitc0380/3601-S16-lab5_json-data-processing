@@ -5,16 +5,6 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
 
     var self = this;
 
-    self.sortingButtons = [{id: "lastName", label: "Last Name", input: "lastName", bool: true},
-      {id: "Credits", label: "Credits", input: "Credits", bool: true},
-      {id: "dateOfBirth", label: "Date of Birth", input: "DOB", bool: false}];
-
-    self.buttonState = function(index) {
-      var buttonsArray = self.sortingButtons.index;
-      buttonsArray.bool = !buttonsArray.bool;
-      console.log("****" + buttonsArray.input + " button is: " + buttonsArray.bool)
-    };
-
     self.currSortables = ['lastName', 'firstName'];
     self.hideGPA = true;
     self.students = [];
@@ -25,6 +15,23 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
     self.index = 0;
     self.sortable = 'lastName';
     self.order = 1;
+    self.sortingButtons = [{id: "lastName", label: "Last Name", input: "lastName", state: true},
+      {id: "Credits", label: "Credits", input: "Credits", state: false},
+      {id: "dateOfBirth", label: "Date of Birth", input: "DOB", state: false}];
+
+    /*   buttonState(buttonsArray, button) takes in an array of json buttons (with a "state" boolean
+    field, and it takes in a button object. The button object, 'button' is the button that needs to
+    be turned "on" i.e. true. A CSS selector can then be applied via ng-class={on:button.state}
+    and the styles of element.on {} will be applied when state=true. buttonState(a,b) must be called
+    from an ng-click=""   */
+
+    self.buttonState = function(buttonsArray, button) {
+      for (var i = 0; i < buttonsArray.length; i++) {
+        buttonsArray[i].state = false;
+      }
+      button.state = true;
+    };
+
 
     Student.query(function(results) {
       self.students = results;
@@ -56,7 +63,7 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
           self.boolGPA = false;
           self.boolCredits = false;
         }
-        console.log("Toggled last name sorting to " + self.boolLastName);
+        //console.log("Toggled last name sorting to " + self.boolLastName);
       } else if (sortable == 'DOB') {
         self.boolDOB = !self.boolDOB;
         if (self.boolDOB) {
@@ -64,7 +71,7 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
           self.boolGPA = false;
           self.boolCredits = false;
         }
-        console.log("Toggled DOB sorting to " + self.boolDOB);
+        //console.log("Toggled DOB sorting to " + self.boolDOB);
       } else if (sortable == 'GPA') {
         self.boolGPA = !self.boolGPA;
         if (self.boolGPA) {
@@ -72,7 +79,7 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
           self.boolDOB = false;
           self.boolCredits = false;
         }
-        console.log("Toggled GPA sorting to " + self.boolGPA);
+        //console.log("Toggled GPA sorting to " + self.boolGPA);
       } else if (sortable == 'Credits') {
         self.boolCredits = !self.boolCredits;
         if (self.boolCredits) {
@@ -80,7 +87,7 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
           self.boolDOB = false;
           self.boolGPA = false;
         }
-        console.log("Toggled Credits sorting to " + self.boolCredits);
+        //console.log("Toggled Credits sorting to " + self.boolCredits);
       }
     };
 
@@ -116,7 +123,7 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
           total += parseInt(courseArray[i].course.credits);
         }
       }
-      console.log("Total credits for " + student.firstName + " " + student.lastName + ": " + total + ", calculated by Credit calculator.");
+      //console.log("Total credits for " + student.firstName + " " + student.lastName + ": " + total + ", calculated by Credit calculator.");
       return total;
     };
 
@@ -127,13 +134,13 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
       var i = 0;
       for (var i in courseArray) {
         if (courseArray[i].grade === "IP") {
-          console.log("In progress class detected!");
+          //console.log("In progress class detected!");
         } else {
           qualityPoints = qualityPoints + (parseInt(courseArray[i].course.credits) * self.gradeToNumber(courseArray[i].grade));
           totalCredits = totalCredits + parseInt(courseArray[i].course.credits);
         }
       }
-      console.log("Total credits for " + student.firstName + " " + student.lastName + ": " + totalCredits + ", calculated by GPA calculator.");
+      //console.log("Total credits for " + student.firstName + " " + student.lastName + ": " + totalCredits + ", calculated by GPA calculator.");
       return Math.round(qualityPoints / totalCredits * 100) / 100;
     };
 

@@ -62,7 +62,7 @@ button.sort:hover {
   background-color: #417cb8;
 }
 
-button.on {
+button.sort.on {
   background-color: #417cb8;
   -webkit-box-shadow: 0 2px #27496d;
   -moz-box-shadow: 0 2px #27496d;

@@ -6,11 +6,11 @@
 
         <label> Sort by ... </label>
 
-        <button type="radio"
-                id={{button.id}}" class="sort"
+        <button type="button"
+                id="{{button.id}}" class="sort"
                 ng-repeat="button in studentCtrl.sortingButtons"
-                ng-click="studentCtrl.toggleSortable(button.input); studentCtrl.buttonState(button)"
-                ng-class="{on:button.bool}">{{button.label}}</button>
+                ng-click="studentCtrl.toggleSortable(button.input); studentCtrl.buttonState(studentCtrl.sortingButtons, button)"
+                ng-class="{on:button.state}">{{button.label}}</button>
 
         <!--<button type="radio" id="lastName" ng-click="studentCtrl.toggleSortable('lastName'); toggle()" ng-class="{on:b.state}">
           Last Name</button>
