@@ -5,6 +5,8 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
 
     var self = this;
 
+    self.showMajors = false;
+    self.search = "";
     self.currSortables = ['lastName', 'firstName'];
     self.hideGPA = true;
     self.students = [];
@@ -19,6 +21,12 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
     self.sortingButtons = [{id: "lastName", label: "Last Name", input: "lastName", state: true},
       {id: "Credits", label: "Credits", input: "Credits", state: false},
       {id: "dateOfBirth", label: "Date of Birth", input: "DOB", state: false}];
+
+    self.filterButtons = [
+      {id: "name", label: "Name", input: "name", state: false},
+      {id: "Credits", label: "Credits", input: "Credits", state: false},
+      {id: "Major", label: "Major", input: "Major", state: false},
+      {id: "Class", label: "Class", input: "Class", state: false}];
 
 
     /*   buttonState(buttonsArray, button) takes in an array of json buttons (with a "state" boolean
@@ -56,6 +64,27 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
       }
       self.currSortables = arr;
     };
+
+    self.checkCourses = function(courses) {
+      courses.some(function(course) {
+        if (course.courseNumber == parseInt(self.search)) {
+          return true;
+        }
+      });
+      return false;
+    }
+
+    self.filterer = function(student) {
+      if (self.filterButtons[2].state) {
+        return (student.major1 === self.search || student.major2 === self.search) ? true : false;
+      } else if (self.filterButtons[0].state) {
+        return (student.lastName === self.search || student.firstName === self.search) ? true : false;
+      } else if (self.filterButtons[3].state) {
+        return self.checkCourses(student.courses);
+      } else {
+        return true;
+      }
+    }
 
     self.toggleSortable = function(sortable) {
       if (sortable == 'lastName') {
@@ -189,7 +218,6 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
     self.getMajors = function(student) {
       var major1 = student.major1;
       var major2 = student.major2;
-      console.log("major1: " + student.major1 + ", major2: " + student.major2)
       var majors = "(undecided)";
       if (major1 != null) {
         majors = major1;

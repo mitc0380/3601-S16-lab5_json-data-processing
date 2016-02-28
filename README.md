@@ -82,7 +82,7 @@ To keep track of progress on the stories throughout the course of the lab, you w
 
 - [X] display a list of all students, ordered by the number of credits that they have successfully completed (i.e. excluding the in-progress credits and grade F courses).
 
-- [ ] view a list of students based on their major(s).
+- [X] view a list of students based on their major(s).
 
 - [X] view detailed information for an individual student.
 
@@ -90,9 +90,9 @@ To keep track of progress on the stories throughout the course of the lab, you w
 
 - [X] display a list of students with their GPA.
 
-- [ ] display students' status based on their completed courses (freshman, sophomore, junior, senior) and sort/search by these parameters.
+- [X] display students' status based on their completed courses (freshman, sophomore, junior, senior) and sort/search by these parameters.
 
-- [ ] search student records based on courses that they are taking or have taken.
+- [X] search student records based on courses that they are taking or have taken.
 
 ## Switching to production mode with a remote database
 In their infinite wisdom, your customer has decided to give you access to their live student database in order

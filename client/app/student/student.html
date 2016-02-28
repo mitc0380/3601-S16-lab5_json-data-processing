@@ -10,12 +10,27 @@
                 id="{{button.id}}" class="sort-btn"
                 ng-repeat="button in studentCtrl.sortingButtons"
                 ng-click="studentCtrl.toggleSortable(button.input); studentCtrl.buttonState(studentCtrl.sortingButtons, button)"
-                ng-class="{on:button.state}">{{button.label}}</button>
+                ng-class="{on:button.state}">{{button.label}}
+        </button>
+        <br>
+        <br>
+        <label> Search for... </label>
+        <input type="text" name="searchField" ng-model="studentCtrl.search">
+        <br>
+        <label> Filter by:  </label>
+
+        <button type="button"
+                ng-repeat="buttonf in studentCtrl.filterButtons"
+                id="{{buttonf.id}}" class="sort-btn"
+                ng-click="buttonf.state = !buttonf.state"
+                ng-class="{on:buttonf.state}">{{buttonf.label}}
+        </button>
+
       </div>
       <hr>
 
       <!-- Student Info/Demographics-->
-      <div class="student-block" ng-repeat="student in studentCtrl.students | orderBy: studentCtrl.sorter">
+      <div class="student-block" ng-repeat="student in studentCtrl.students | orderBy: studentCtrl.sorter | filter: studentCtrl.filterer">
         <div class="student-name">
           {{student.firstName}} {{student.lastName}}
         </div>
