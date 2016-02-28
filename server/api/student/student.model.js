@@ -10,7 +10,9 @@ var StudentSchema = new mongoose.Schema({
   email: String,
   phone: String,
   address: String,
-  courses: Array
+  courses: Array,
+  major1: String,
+  major2: String
 });
 
 export default mongoose.model('Student', StudentSchema);

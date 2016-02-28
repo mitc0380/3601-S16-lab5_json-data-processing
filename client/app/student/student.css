@@ -1,3 +1,5 @@
+
+
 .class-info {
   padding-left: 15px;
 }
@@ -45,6 +47,9 @@
   padding-right: 10px;
 }
 
+button {
+  outline-width: 0;
+}
 button.sort-btn {
   background: #6496c8;;
   border: none;
@@ -75,12 +80,12 @@ button.data-btn {
   background: transparent;
   border: 2px solid #6496c8;
   border-radius: 4px;
-  -webkit-box-shadow: 0 4px #27496d;
-  -moz-box-shadow: 0 4px #27496d;
-  box-shadow: 0 4px #27496d;
+  -webkit-box-shadow: 0 2px #27496d;
+  -moz-box-shadow: 0 2px #27496d;
+  box-shadow: 0 2px #27496d;
   margin: 3px;
-  color: #6496c8;
-  font-size: 1.2em;
+  color: #27496d;
+  font-size: 1.1em;
   font-style: normal;
 }
 
@@ -91,9 +96,9 @@ button.data-btn:hover {
 
 button.data-btn.on {
   background-color: #417cb8;
-  -webkit-box-shadow: 0 2px #27496d;
-  -moz-box-shadow: 0 2px #27496d;
-  box-shadow: 0 2px #27496d;
-  transform: translateY(2px);
+  -webkit-box-shadow: 0 1px #27496d;
+  -moz-box-shadow: 0 1px #27496d;
+  box-shadow: 0 1px #27496d;
+  transform: translateY(1px);
   color: #fff;
 }

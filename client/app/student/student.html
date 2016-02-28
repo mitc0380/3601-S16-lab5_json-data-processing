@@ -11,16 +11,6 @@
                 ng-repeat="button in studentCtrl.sortingButtons"
                 ng-click="studentCtrl.toggleSortable(button.input); studentCtrl.buttonState(studentCtrl.sortingButtons, button)"
                 ng-class="{on:button.state}">{{button.label}}</button>
-
-        <!--<button type="radio" id="lastName" ng-click="studentCtrl.toggleSortable('lastName'); toggle()" ng-class="{on:b.state}">
-          Last Name</button>
-
-        <button type="radio" id="Credits" ng-click="studentCtrl.toggleSortable('Credits'); toggle()" ng-class="{on:b.state}">
-          Credits</button>
-
-        <button type="radio" id="dateOfBirth" ng-click="studentCtrl.toggleSortable('DOB'); toggle()" ng-class="{on:b.state}">
-          Date of Birth </button>-->
-
       </div>
       <hr>
 
@@ -42,14 +32,6 @@
             ng-class="{on:showCourses}"
             ng-click="showInfo=false; showCourses=!showCourses;">
             Course History</button>
-
-          <!--
-          <button type="button"
-                  class="data-btn"
-                  ng-repeat="button in studentCtrl.studentDataButtons"
-                  ng-click="studentCtrl.buttonState(studentCtrl.studentDataButtons, button); showInfo = !studentCtrl.studentDataButtons.state; showCourses = studentCtrl.studentDataButtons.state"
-                  ng-class="{on:button.state}">{{button.label}}</button>
-                  -->
 
         </div>
 
