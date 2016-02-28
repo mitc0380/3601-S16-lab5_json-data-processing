@@ -5,6 +5,17 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
 
     var self = this;
 
+    self.sortingButtons = [
+      {id: "lastName", label: "Last Name", input: "lastName", state: "false"},
+      {id: "Credits", label: "Credits", input: "Credits", state: "false"},
+      {id: "dateOfBirth", label: "Date of Birth", input: "DOB", state: "false"}];
+
+    self.buttonState = function() {
+      var buttonArray = self.sortingButtons;
+      buttonArray.button.state = !buttonArray.button.state;
+      console.log("****" + buttonArray.button.input + " button is: " + buttonArray.button.state)
+    };
+
     self.currSortables = ['lastName', 'firstName'];
     self.hideGPA = true;
     self.students = [];
@@ -15,26 +26,11 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
     self.index = 0;
     self.sortable = 'lastName';
     self.order = 1;
-    //self.sortables = ['lastName', 'firstName', 'dateOfBirth', 'studentCtrl.calculateGPAAngular', 'major1', 'major2'];
 
     Student.query(function(results) {
       self.students = results;
       socket.syncUpdates('student', self.students);
     });
-
-    /*self.getCurrentSortable = function(){
-
-      var arr = [];
-      if (self.boolLastName) {
-        arr.push(self.sortables[0]);
-        arr.push(self.sortables[1]);
-      } else if (self.boolDOB) {
-        arr.push(self.sortables[2]);
-      } else if (self.boolGPA) {
-        return studentCtrl.calculateGPAAngular;
-      }
-      return arr;
-    }*/
 
     self.toggleOrder = function() {
       self.order *= 1;
@@ -163,7 +159,6 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
 
     self.datetoNumber = function(dob) {
       var dobInt = dob.replace("-", "").replace("-", "");
-      console.log(dobInt);
       return dobInt;
     };
 
@@ -182,6 +177,21 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
         return "Freshman";
       }
     };
+
+    self.getMajor = function(student) {
+      var major1 = student.major1;
+      var major2 = student.major2;
+      var majors;
+      if (typeof major1 === isString) {
+        majors = major1;
+        if (typeof major2 === isString) {
+          majors = majors + ", " + major2;
+        } else  {
+          majors = "(undecided)";
+        }
+      }
+      return majors;
+    }
 
   });
 

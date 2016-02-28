@@ -6,13 +6,13 @@ describe('Service: student', function () {
   beforeEach(module('3601S16Lab5JsonDataProcessingApp'));
 
   // instantiate service
-  var student;
+  /*var student;
   beforeEach(inject(function (_student_) {
     student = _student_;
   }));
 
   it('should do something', function () {
     expect(!!student).toBe(true);
-  });
+  });*/
 
 });

@@ -7,7 +7,7 @@
 }
 
 .student-block {
-  border: 2px solid black;
+  border: 2px solid #27496d;
   border-radius: 3px;
   padding: 4px;
   margin: 6px;
@@ -22,29 +22,50 @@
 }
 
 .student-data {
-  display: inline-block;
+  display: block;
   line-height: 100%;
   padding: 2px;
   margin: 3px;
+  border-bottom: 1px dotted #6496c8;
 }
 
 .course-table {
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid #6496c8;
   border-collapse: collapse;
   padding: 2px;
+  padding-right: 10px;
 }
 .course-table-dark {
   background-color: #f1f1f1;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid #6496c8;
   border-collapse: collapse;
   padding: 2px;
+  padding-right: 10px;
 }
 
-.btn-true {
-  border: 2px solid red;
+button.sort {
+  background: #6496c8;;
+  border: none;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 4px #27496d;
+  -moz-box-shadow: 0 4px #27496d;
+  box-shadow: 0 4px #27496d;
+  margin: 3px;
+  color: #fff;
+  font-size: 1.3em;
+  font-style: normal;
 }
 
-.btn-false {
-  border: 2px solid blue;
+button.sort:hover {
+  background-color: #417cb8;
 }
+
+button.on {
+  background-color: #417cb8;
+  -webkit-box-shadow: 0 2px #27496d;
+  -moz-box-shadow: 0 2px #27496d;
+  box-shadow: 0 2px #27496d;
+  transform: translateY(2px);
+}
+
 
