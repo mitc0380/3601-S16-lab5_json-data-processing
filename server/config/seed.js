@@ -1453,7 +1453,7 @@ Student.find({}).removeAsync().then(() => {
               "name": "Reading and Analysis of Texts",
               "subject": "FREN",
               "courseNumber": 3401,
-              "credits": 4
+              "credits": 400
             },
             "grade": "C"
           },

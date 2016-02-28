@@ -126,10 +126,6 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
       }
     };
 
-    self.toggleAscendDescend = function() {
-      self.ascendDescend = !self.ascendDescend;
-    };
-
     $scope.$on('$destroy', function() {
       socket.unsyncUpdates('student');
     });
