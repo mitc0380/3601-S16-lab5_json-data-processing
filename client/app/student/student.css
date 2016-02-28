@@ -45,7 +45,7 @@
   padding-right: 10px;
 }
 
-button.sort {
+button.sort-btn {
   background: #6496c8;;
   border: none;
   border-radius: 4px;
@@ -58,11 +58,11 @@ button.sort {
   font-style: normal;
 }
 
-button.sort:hover {
+button.sort-btn:hover {
   background-color: #417cb8;
 }
 
-button.sort.on {
+button.sort-btn.on {
   background-color: #417cb8;
   -webkit-box-shadow: 0 2px #27496d;
   -moz-box-shadow: 0 2px #27496d;
@@ -71,3 +71,29 @@ button.sort.on {
 }
 
 
+button.data-btn {
+  background: transparent;
+  border: 2px solid #6496c8;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 4px #27496d;
+  -moz-box-shadow: 0 4px #27496d;
+  box-shadow: 0 4px #27496d;
+  margin: 3px;
+  color: #6496c8;
+  font-size: 1.2em;
+  font-style: normal;
+}
+
+button.data-btn:hover {
+  background-color: #417cb8;
+  color: #fff;
+}
+
+button.data-btn.on {
+  background-color: #417cb8;
+  -webkit-box-shadow: 0 2px #27496d;
+  -moz-box-shadow: 0 2px #27496d;
+  box-shadow: 0 2px #27496d;
+  transform: translateY(2px);
+  color: #fff;
+}

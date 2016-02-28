@@ -7,7 +7,7 @@
         <label> Sort by ... </label>
 
         <button type="button"
-                id="{{button.id}}" class="sort"
+                id="{{button.id}}" class="sort-btn"
                 ng-repeat="button in studentCtrl.sortingButtons"
                 ng-click="studentCtrl.toggleSortable(button.input); studentCtrl.buttonState(studentCtrl.sortingButtons, button)"
                 ng-class="{on:button.state}">{{button.label}}</button>
@@ -31,8 +31,26 @@
         </div>
 
         <div>
-          <button ng-click="showInfo=!showInfo; showCourses=false" >Student Info</button>
-          <button ng-click="showInfo=false; showCourses=!showCourses">Course History</button>
+
+          <button
+            class="data-btn"
+            ng-class="{on:showInfo}"
+            ng-click="showInfo=!showInfo; showCourses=false;" >
+            Student Info</button>
+          <button
+            class="data-btn"
+            ng-class="{on:showCourses}"
+            ng-click="showInfo=false; showCourses=!showCourses;">
+            Course History</button>
+
+          <!--
+          <button type="button"
+                  class="data-btn"
+                  ng-repeat="button in studentCtrl.studentDataButtons"
+                  ng-click="studentCtrl.buttonState(studentCtrl.studentDataButtons, button); showInfo = !studentCtrl.studentDataButtons.state; showCourses = studentCtrl.studentDataButtons.state"
+                  ng-class="{on:button.state}">{{button.label}}</button>
+                  -->
+
         </div>
 
 

@@ -18,6 +18,10 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
     self.sortingButtons = [{id: "lastName", label: "Last Name", input: "lastName", state: true},
       {id: "Credits", label: "Credits", input: "Credits", state: false},
       {id: "dateOfBirth", label: "Date of Birth", input: "DOB", state: false}];
+    self.studentDataButtons = [
+      {label: "Student Info", state: false},
+      {label: "Course History", state: false}
+    ];
 
     /*   buttonState(buttonsArray, button) takes in an array of json buttons (with a "state" boolean
     field, and it takes in a button object. The button object, 'button' is the button that needs to
