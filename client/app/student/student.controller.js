@@ -5,15 +5,14 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
 
     var self = this;
 
-    self.sortingButtons = [
-      {id: "lastName", label: "Last Name", input: "lastName", state: "false"},
-      {id: "Credits", label: "Credits", input: "Credits", state: "false"},
-      {id: "dateOfBirth", label: "Date of Birth", input: "DOB", state: "false"}];
+    self.sortingButtons = [{id: "lastName", label: "Last Name", input: "lastName", bool: true},
+      {id: "Credits", label: "Credits", input: "Credits", bool: true},
+      {id: "dateOfBirth", label: "Date of Birth", input: "DOB", bool: false}];
 
-    self.buttonState = function() {
-      var buttonArray = self.sortingButtons;
-      buttonArray.button.state = !buttonArray.button.state;
-      console.log("****" + buttonArray.button.input + " button is: " + buttonArray.button.state)
+    self.buttonState = function(index) {
+      var buttonsArray = self.sortingButtons.index;
+      buttonsArray.bool = !buttonsArray.bool;
+      console.log("****" + buttonsArray.input + " button is: " + buttonsArray.bool)
     };
 
     self.currSortables = ['lastName', 'firstName'];
