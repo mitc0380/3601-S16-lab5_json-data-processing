@@ -14,9 +14,6 @@
         </button>
         <br>
         <br>
-        <label> Search for... </label>
-        <input type="text" name="searchField" ng-model="studentCtrl.search">
-        <br>
         <label> Filter by:  </label>
 
         <button type="button"
@@ -25,6 +22,9 @@
                 ng-click="buttonf.state = !buttonf.state"
                 ng-class="{on:buttonf.state}">{{buttonf.label}}
         </button>
+        <label> Searching for... </label>
+        <input type="text" name="searchField" ng-model="studentCtrl.search">
+
 
       </div>
       <hr>

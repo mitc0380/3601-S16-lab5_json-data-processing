@@ -24,7 +24,7 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
 
     self.filterButtons = [
       {id: "name", label: "Name", input: "name", state: false},
-      {id: "Credits", label: "Credits", input: "Credits", state: false},
+      {id: "Rank", label: "Rank", input: "Rank", state: false},
       {id: "Major", label: "Major", input: "Major", state: false},
       {id: "Class", label: "Class", input: "Class", state: false}];
 
@@ -49,7 +49,7 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
     });
 
     self.toggleOrder = function() {
-      self.order *= 1;
+      self.order *= -1;
     };
 
     self.giveSortables = function(sortable) {
@@ -66,12 +66,14 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
     };
 
     self.checkCourses = function(courses) {
+      var bool = false;
       courses.some(function(course) {
-        if (course.courseNumber == parseInt(self.search)) {
-          return true;
+        console.log(parseInt(self.search) + " vs. " + course.course.courseNumber);
+        if (course.course.courseNumber.toString() === self.search) {
+          bool = true;
         }
       });
-      return false;
+      return bool;
     }
 
     self.filterer = function(student) {
@@ -81,6 +83,8 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
         return (student.lastName === self.search || student.firstName === self.search) ? true : false;
       } else if (self.filterButtons[3].state) {
         return self.checkCourses(student.courses);
+      } else if (self.filterButtons[1].state) {
+        return (self.classRank(student) === self.search) ? true : false;
       } else {
         return true;
       }

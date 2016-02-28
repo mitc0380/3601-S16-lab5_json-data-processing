@@ -18,8 +18,4 @@ describe('Controller: StudentCtrl', function () {
   it('should ...', function () {
     expect(1).toEqual(1);
   });
-
-  it('Testing classRank', function () {
-    expect(studentCtrl.classRank(60).toEqual("Junior"))
-  });
 });

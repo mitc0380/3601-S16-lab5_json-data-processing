@@ -24,9 +24,4 @@ describe('Controller: MainController', function() {
       $scope: scope
     });
   }));
-
-  it('should attach a list of things to the controller', function() {
-    $httpBackend.flush();
-    expect(MainController.students.length).toBe(4);
-  });
 });
