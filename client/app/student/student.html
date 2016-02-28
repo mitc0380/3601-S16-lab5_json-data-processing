@@ -3,10 +3,24 @@
     <div class="col-md-12">
       <h1 class="page-header">Students:</h1>
       <div class="btn-group-horizontal">
+
         <label> Sort by ... </label>
-        <button type="radio" id="lastName" ng-click="studentCtrl.toggleSortable('lastName')"> Last Name </button>
-        <button type="radio" id="Credits" ng-click="studentCtrl.toggleSortable('Credits')"> Credits </button>
-        <button type="radio" id="dateOfBirth" ng-click="studentCtrl.toggleSortable('DOB')"> Date of Birth </button>
+
+        <button type="radio"
+                id={{button.id}}" class="sort"
+                ng-repeat="button in studentCtrl.sortingButtons"
+                ng-click="studentCtrl.toggleSortable(button.input); studentCtrl.buttonState()"
+                ng-class="{on:studentCtrl.sortingButtons.button.state}">{{button.label}}</button>
+
+        <!--<button type="radio" id="lastName" ng-click="studentCtrl.toggleSortable('lastName'); toggle()" ng-class="{on:b.state}">
+          Last Name</button>
+
+        <button type="radio" id="Credits" ng-click="studentCtrl.toggleSortable('Credits'); toggle()" ng-class="{on:b.state}">
+          Credits</button>
+
+        <button type="radio" id="dateOfBirth" ng-click="studentCtrl.toggleSortable('DOB'); toggle()" ng-class="{on:b.state}">
+          Date of Birth </button>-->
+
       </div>
       <hr>
 
@@ -17,8 +31,8 @@
         </div>
 
         <div>
-          <button ng-class="{true: 'btn-true', false: 'btn-false'}" ng-click="showInfo=true; showCourses=false" >Student Info</button>
-          <button ng-class="{true: 'btn-true', false: 'btn-false'}" ng-click="showInfo=false; showCourses=true">Course History</button>
+          <button ng-click="showInfo=true; showCourses=false" >Student Info</button>
+          <button ng-click="showInfo=false; showCourses=true">Course History</button>
         </div>
 
 
