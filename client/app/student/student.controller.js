@@ -17,6 +17,7 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
     self.index = 0;
     self.sortable = 'lastName';
     self.order = 1;
+    self.searchLabel = "None";
 
     self.sortingButtons = [{id: "lastName", label: "Last Name", input: "lastName", state: true},
       {id: "Credits", label: "Credits", input: "Credits", state: false},
@@ -26,7 +27,8 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
       {id: "name", label: "Name", input: "name", state: false},
       {id: "Rank", label: "Rank", input: "Rank", state: false},
       {id: "Major", label: "Major", input: "Major", state: false},
-      {id: "Class", label: "Class", input: "Class", state: false}];
+      {id: "Class", label: "Class", input: "Class", state: false},
+      {id: "none", label: "None", state: true}];
 
 
     /*   buttonState(buttonsArray, button) takes in an array of json buttons (with a "state" boolean
@@ -218,7 +220,7 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
     self.getMajors = function(student) {
       var major1 = student.major1;
       var major2 = student.major2;
-      var majors = "(undecided)";
+      var majors = "(undeclared)";
       if (major1 != null) {
         majors = major1;
         if (major2 != null) {

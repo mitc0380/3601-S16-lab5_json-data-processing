@@ -25,3 +25,11 @@
 .navbar-text {
   margin-left: 15px;
 }
+
+body {
+  background-color: #27496d;
+}
+
+div > li {
+  font-size: 1.4em;
+}

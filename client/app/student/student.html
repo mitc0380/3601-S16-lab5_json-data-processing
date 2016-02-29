@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container fakeBody">
   <div class="row">
     <div class="col-md-12">
       <h1 class="page-header">Students:</h1>
@@ -19,11 +19,11 @@
         <button type="button"
                 ng-repeat="buttonf in studentCtrl.filterButtons"
                 id="{{buttonf.id}}" class="sort-btn"
-                ng-click="buttonf.state = !buttonf.state"
+                ng-click="studentCtrl.searchLabel = buttonf.label; studentCtrl.buttonState(studentCtrl.filterButtons, buttonf)"
                 ng-class="{on:buttonf.state}">{{buttonf.label}}
         </button>
         <label> Searching for... </label>
-        <input type="text" name="searchField" ng-model="studentCtrl.search">
+        <input type="text" name="searchField" placeholder={{studentCtrl.searchLabel}} ng-model="studentCtrl.search">
 
 
       </div>
@@ -31,20 +31,18 @@
 
       <!-- Student Info/Demographics-->
       <div class="student-block" ng-repeat="student in studentCtrl.students | orderBy: studentCtrl.sorter | filter: studentCtrl.filterer">
-        <div class="student-name">
-          {{student.firstName}} {{student.lastName}}
+        <div >
+          <h2 class="student-name">{{student.firstName}} {{student.lastName}}</h2>
         </div>
 
         <div>
 
           <button
-            class="data-btn"
-            ng-class="{on:showInfo}"
+            class="data-btn" ng-class="{on:showInfo}"
             ng-click="showInfo=!showInfo; showCourses=false;" >
             Student Info</button>
           <button
-            class="data-btn"
-            ng-class="{on:showCourses}"
+            class="data-btn" ng-class="{on:showCourses}"
             ng-click="showInfo=false; showCourses=!showCourses;">
             Course History</button>
 
@@ -93,11 +91,10 @@
               <td class="course-table" ng-if="$odd">  {{class.grade}}</td>
             </tr>
           </table>
-
         </div>
 
-
       </div>
+      <!--End of student info-->
 
     </div>
   </div>
