@@ -76,23 +76,23 @@ To keep track of progress on the stories throughout the course of the lab, you w
 
 #### Finally, the stories:
 
-- [X] display a list of all students, ordered alphabetically by last name, first name.
+- [X] display a list of all students, ordered alphabetically by last name, first name.{3}
 
-- [X] display a list of all students, ordered by date of birth.
+- [X] display a list of all students, ordered by date of birth.{3}
 
-- [X] display a list of all students, ordered by the number of credits that they have successfully completed (i.e. excluding the in-progress credits and grade F courses).
+- [X] display a list of all students, ordered by the number of credits that they have successfully completed (i.e. excluding the in-progress credits and grade F courses).{4}
 
-- [X] view a list of students based on their major(s).
+- [X] view a list of students based on their major(s).{4}
 
-- [X] view detailed information for an individual student.
+- [X] view detailed information for an individual student.{1}
 
-- [X] view all courses that a student has taken or is taking, with grades, including failed courses.
+- [X] view all courses that a student has taken or is taking, with grades, including failed courses.{2}
 
-- [X] display a list of students with their GPA.
+- [X] display a list of students with their GPA.{5}
 
-- [X] display students' status based on their completed courses (freshman, sophomore, junior, senior) and sort/search by these parameters.
+- [X] display students' status based on their completed courses (freshman, sophomore, junior, senior) and sort/search by these parameters.{4}
 
-- [X] search student records based on courses that they are taking or have taken.
+- [X] search student records based on courses that they are taking or have taken.{5}
 
 ## Switching to production mode with a remote database
 In their infinite wisdom, your customer has decided to give you access to their live student database in order
