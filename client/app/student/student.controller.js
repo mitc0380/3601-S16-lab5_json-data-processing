@@ -7,6 +7,7 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
 
     self.showMajors = false;
     self.search = "";
+    self.Usearch = self.search.toUpperCase();
     self.currSortables = ['lastName', 'firstName'];
     self.hideGPA = true;
     self.students = [];
@@ -70,27 +71,28 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
     self.checkCourses = function(courses) {
       var bool = false;
       courses.some(function(course) {
-        console.log(parseInt(self.search) + " vs. " + course.course.courseNumber);
+        /*console.log(parseInt(self.search) + " vs. " + course.course.courseNumber);*/
         if (course.course.courseNumber.toString() === self.search) {
           bool = true;
         }
       });
       return bool;
-    }
+    };
 
     self.filterer = function(student) {
       if (self.filterButtons[2].state) {
-        return (student.major1 === self.search || student.major2 === self.search) ? true : false;
+        return (student.major1 === self.search || student.major2 === self.search);
       } else if (self.filterButtons[0].state) {
-        return (student.lastName === self.search || student.firstName === self.search) ? true : false;
+        return (student.lastName === self.search || student.firstName === self.search);
       } else if (self.filterButtons[3].state) {
         return self.checkCourses(student.courses);
       } else if (self.filterButtons[1].state) {
-        return (self.classRank(student) === self.search) ? true : false;
+        return (self.classRank(student) === self.search);
       } else {
         return true;
       }
-    }
+    };
+
 
     self.toggleSortable = function(sortable) {
       if (sortable == 'lastName') {

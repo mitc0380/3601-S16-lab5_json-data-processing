@@ -30,6 +30,14 @@ body {
   background-color: #27496d;
 }
 
-div > li {
+.ul-home {
   font-size: 1.4em;
+  list-style-position: inside;
+  text-align: center;
+}
+
+.body-copy {
+  color: #fff;
+  text-align: center;
+  margin: 20px;
 }
