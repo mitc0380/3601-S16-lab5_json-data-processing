@@ -78,7 +78,7 @@ To keep track of progress on the stories throughout the course of the lab, you w
 
 - [X] display a list of all students, ordered alphabetically by last name, first name.{3}
 
-- [X] display a list of all students, ordered by date of birth.{3}
+- [X] display a list of all students, ordered by date of birth.{3}
 
 - [X] display a list of all students, ordered by the number of credits that they have successfully completed (i.e. excluding the in-progress credits and grade F courses).{4}
 
